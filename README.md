@@ -18,13 +18,13 @@ The project focuses on developing the probabilistic framework required to unders
 
 The main goals of the project were to:
 
-* review the mathematical foundations of probability theory required for the analysis;
-* understand weak convergence of probability measures;
-* study Wasserstein distance and its optimal-transport interpretation;
-* examine the relationship between weak convergence and Wasserstein convergence;
-* understand the role of couplings and quantile representations;
-* study the main arguments leading to the Tanaka Central Limit Theorem;
-* compare the Wasserstein formulation with the classical weak form of the Central Limit Theorem.
+* Review the mathematical foundations of probability theory required for the analysis.
+* Understand weak convergence of probability measures.
+* Study Wasserstein distance and its optimal-transport interpretation.
+* Examine the relationship between weak convergence and Wasserstein convergence.
+* Understand the role of couplings and quantile representations.
+* Study the main arguments leading to the Tanaka Central Limit Theorem.
+* Compare the Wasserstein formulation with the classical weak form of the Central Limit Theorem.
 
 ---
 
@@ -55,20 +55,20 @@ This theoretical preparation provided the background needed to move from the cla
 
 A central theme of the project is the distinction between **weak convergence** and **Wasserstein convergence**.
 
-For a sequence of probability measures \(\mu_n\), weak convergence describes convergence in distribution. However, weak convergence alone does not generally guarantee convergence of moments.
+For a sequence of probability measures $\mu_n$, weak convergence describes convergence in distribution. However, weak convergence alone does not generally guarantee convergence of moments.
 
-For probability measures with finite \(p\)-th moments, the \(p\)-Wasserstein distance is defined by
+For probability measures with finite $p$-th moments, the $p$-Wasserstein distance is defined by
 
 $$
 W_p(\mu,\nu)
 =
 \inf_{(X,Y)\in\Gamma(\mu,\nu)}
-\left(\mathbb{E}|X-Y|^p\right)^{1/p},
+\left(\mathbb{E}|X-Y|^p\right)^{1/p}.
 $$
 
-where \(\Gamma(\mu,\nu)\) denotes the set of couplings of \(\mu\) and \(\nu\).
+Here, $\Gamma(\mu,\nu)$ denotes the set of all couplings of $\mu$ and $\nu$.
 
-For this project, particular attention was given to the case \(p=2\).
+For this project, particular attention was given to the case $p=2$.
 
 The Wasserstein framework therefore provides a way to study convergence that contains information beyond convergence in distribution.
 
@@ -76,7 +76,7 @@ The Wasserstein framework therefore provides a way to study convergence that con
 
 ## Tanaka Central Limit Theorem
 
-Let \(X_1,X_2,\ldots\) be independent and identically distributed random variables with
+Let $X_1,X_2,\ldots$ be independent and identically distributed random variables satisfying
 
 $$
 \mathbb{E}[X_1]=0,
@@ -95,12 +95,10 @@ $$
 The classical Central Limit Theorem states that
 
 $$
-\zeta_n
-\Rightarrow
-Z,
+\zeta_n \Rightarrow Z,
 $$
 
-where \(Z\) is a standard Gaussian random variable.
+where $Z$ is a standard Gaussian random variable.
 
 The Tanaka formulation studies this convergence in the Wasserstein metric, providing a stronger form of convergence under the appropriate moment assumptions.
 
@@ -126,7 +124,7 @@ $$
 \frac{\eta_k+\eta_k'}{\sqrt{2}},
 $$
 
-where \(\eta_k'\) is an independent copy of \(\eta_k\).
+where $\eta_k'$ is an independent copy of $\eta_k$.
 
 This recursive structure makes it possible to analyze how the relevant distance to the Gaussian distribution evolves as the number of summed random variables increases.
 
@@ -150,11 +148,11 @@ Moment estimates are used to control the sequence and establish the required lim
 
 In particular, bounded higher moments provide the necessary control for passing from the dyadic construction to the limiting result.
 
-### 5. From Powers of Two to General \(n\)
+### 5. From Powers of Two to General $n$
 
-After establishing the result for the dyadic subsequence, the argument is extended to arbitrary \(n\).
+After establishing the result for the dyadic subsequence, the argument is extended to arbitrary $n$.
 
-The binary representation of \(n\) provides a way to decompose a general normalized sum into components associated with powers of two, allowing the dyadic result to be transferred to the full sequence.
+The binary representation of $n$ provides a way to decompose a general normalized sum into components associated with powers of two, allowing the dyadic result to be transferred to the full sequence.
 
 ---
 
@@ -168,28 +166,28 @@ $$
 \zeta_n \Rightarrow Z.
 $$
 
-Under the appropriate convergence of second moments, weak convergence can then be combined with the characterization of Wasserstein convergence to obtain convergence in \(W_2\).
+Under the appropriate convergence of second moments, weak convergence can then be combined with the characterization of Wasserstein convergence to obtain convergence in $W_2$.
 
 This provides two complementary perspectives:
 
 ```text
                  Classical CLT
-                      │
-                      ▼
+                      |
+                      v
               Weak Convergence
-                      │
+                      |
              + Moment Control
-                      │
-                      ▼
+                      |
+                      v
             Wasserstein Convergence
 
 
              Tanaka's Approach
-                      │
-                      ▼
+                      |
+                      v
           Wasserstein-Based Analysis
-                      │
-                      ▼
+                      |
+                      v
            Direct Control of the
            Distance to the Gaussian
 ```
@@ -205,7 +203,7 @@ The project brings together several concepts from probability theory:
 | Concept                 | Role in the Project                                       |
 | ----------------------- | --------------------------------------------------------- |
 | Weak convergence        | Classical mode of convergence in the CLT                  |
-| Wasserstein distance    | Stronger metric for comparing probability distributions   |
+| Wasserstein distance    | Metric for comparing probability distributions            |
 | Couplings               | Mathematical construction underlying Wasserstein distance |
 | Quantile representation | Characterization of Wasserstein distance on the real line |
 | Moments                 | Additional information required for stronger convergence  |
@@ -261,11 +259,9 @@ Cédric Villani, *Optimal Transport: Old and New*, Springer, 2009.
 
 ### Team
 
-* **Helia Tajabadi** https://github.com/HeliaTJB
-
-
+* **Helia Tajabadi** — [GitHub](https://github.com/HeliaTJB)
 * Behrad Mohammadian
-* Amirali Jahanbakhsh https://github.com/AmirAli-jb
+* **Amirali Jahanbakhsh** — [GitHub](https://github.com/AmirAli-jb)
 * Hana Akhavan
 
 ---
