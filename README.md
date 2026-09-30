@@ -47,19 +47,6 @@ Weak convergence can be characterized through convergence of expectations of bou
 
 We therefore studied the **Wasserstein distance**, defined for probability measures with finite \(p\)-th moments by
 
-$$
-W_p(\mu,\nu)
-=
-\inf_{(X,Y)\sim\Gamma(\mu,\nu)}
-\left(
-\mathbb{E}[|X-Y|^p]
-\right)^{1/p},
-$$
-
-where \(\Gamma(\mu,\nu)\) denotes the set of all couplings of \(\mu\) and \(\nu\).
-
-We also developed the interpretation of Wasserstein distance as an **optimal transportation cost** between two probability distributions.
-
 ## Main Mathematical Ingredients
 
 The proof was developed through several intermediate results.
@@ -94,75 +81,6 @@ with equality characterized by the Gaussian case in the relevant setting.
 
 This property allows the behavior of normalized sums to be controlled through the corresponding Wasserstein distances.
 
-## Tanaka Central Limit Theorem
-
-Let \(X_1,X_2,\ldots\) be independent and identically distributed random variables satisfying
-
-$$
-\mathbb{E}[X_i]=0,
-\qquad
-\operatorname{Var}(X_i)=1,
-$$
-
-and define the normalized partial sums
-
-$$
-\zeta_n
-=
-\frac{X_1+\cdots+X_n}{\sqrt n}.
-$$
-
-The classical Central Limit Theorem gives convergence of the distribution of \(\zeta_n\) to the standard Gaussian distribution in the weak sense.
-
-The objective of this project was to understand how this convergence can be strengthened to convergence in the **Wasserstein metric**.
-
-For the main argument, we considered the sequence
-
-$$
-\eta_k = \zeta_{2^k}.
-$$
-
-Using the decomposition of sums at consecutive powers of two, we obtained a recursive relation between successive elements of this sequence. Combined with the subadditivity property and moment bounds, this allowed us to show that the corresponding Wasserstein distance converges to zero.
-
-The argument was then extended from powers of two to arbitrary \(n\) by expressing \(n\) in its binary representation.
-
-## Proof Strategy
-
-The overall structure of the proof can be summarized as:
-
-```text
-Probability Theory
-       │
-       ▼
-Couplings
-       │
-       ▼
-Wasserstein Distance
-       │
-       ▼
-Weak Convergence
-       │
-       ▼
-Moment Conditions
-       │
-       ▼
-Subadditivity / Gaussian Characterization
-       │
-       ▼
-Normalized Sums
-       │
-       ▼
-Dyadic Subsequence ηₖ = ζ₂ᵏ
-       │
-       ▼
-Convergence of the Subsequence
-       │
-       ▼
-Extension to Arbitrary n
-       │
-       ▼
-Tanaka Central Limit Theorem
-```
 
 ## Alternative Proof Perspective
 
@@ -217,7 +135,14 @@ https://github.com/HeliaTJB
 
 
 **Course:** Probability and Statistics - Dr. Mojahedian (25732)
+
+
+
 **Department:** Electrical Engineering, Sharif University of Technology
+
+
+
+
 **Semester:** Fall 2025
 
 
