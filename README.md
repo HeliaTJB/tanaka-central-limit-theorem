@@ -1,148 +1,283 @@
-# tanaka-central-limit-theorem
+# Tanaka Central Limit Theorem
 
-
-This repository contains our study and mathematical analysis of the **Tanaka Central Limit Theorem**, with a focus on understanding the role of **Wasserstein distance** and its relationship to weak convergence in probability.
-
-The project was carried out as part of the **Probability and Statistics (25732)** course at **Sharif University of Technology**. Our main goal was to study a stronger form of the classical Central Limit Theorem and understand the mathematical ideas underlying its proof.
+[![Course](https://img.shields.io/badge/Course-Probability%20and%20Statistics-blue)](https://github.com/HeliaTJB/tanaka-central-limit-theorem)
+[![University](https://img.shields.io/badge/University-Sharif%20University%20of%20Technology-red)](https://www.sharif.edu/)
+[![Topic](https://img.shields.io/badge/Topic-Probability%20Theory-purple)](https://github.com/HeliaTJB/tanaka-central-limit-theorem)
 
 ## Overview
 
-The classical Central Limit Theorem states that, under suitable assumptions, normalized sums of independent and identically distributed random variables converge to a Gaussian distribution.
+This project studies the **Tanaka Central Limit Theorem** and its relationship to the classical Central Limit Theorem through the framework of **Wasserstein distance**.
 
-In the standard formulation studied in class, this convergence is understood in the sense of **weak convergence**. The Tanaka Central Limit Theorem provides a stronger perspective by considering convergence with respect to the **Wasserstein distance**.
+The classical Central Limit Theorem describes convergence of normalized sums of independent and identically distributed random variables to a Gaussian distribution in the sense of **weak convergence**. The Tanaka Central Limit Theorem provides a stronger form of convergence by considering the **Wasserstein distance**, which also captures information related to moments.
 
-This project therefore focuses on the mathematical framework needed to move from weak convergence to Wasserstein convergence and to understand the proof of the Tanaka Central Limit Theorem.
+The project focuses on developing the probabilistic framework required to understand this stronger notion of convergence and following the main ideas behind the proof of the Tanaka Central Limit Theorem.
 
-## Theoretical Preparation
+---
 
-As preparation for the project, we studied probability theory using:
+## Project Goals
+
+The main goals of the project were to:
+
+* review the mathematical foundations of probability theory required for the analysis;
+* understand weak convergence of probability measures;
+* study Wasserstein distance and its optimal-transport interpretation;
+* examine the relationship between weak convergence and Wasserstein convergence;
+* understand the role of couplings and quantile representations;
+* study the main arguments leading to the Tanaka Central Limit Theorem;
+* compare the Wasserstein formulation with the classical weak form of the Central Limit Theorem.
+
+---
+
+## Mathematical Background
+
+As preparation, we studied probability theory using:
 
 > Lasse Leskelä, *Probability Theory: A Fast Course*, Aalto University, 2024.
 
-The book provides a rigorous introduction to probability theory with particular emphasis on measure-theoretic probability, probability measures, convergence, and metrics between probability measures.
+The topics most relevant to the project included:
 
-Our study focused on the concepts that were directly relevant to the project, including:
-
-* Probability spaces and measures
-* Sigma-algebras and Borel sets
-* Random variables and their laws
+* Probability spaces and probability measures
+* Random variables and their distributions
 * Expectation and integration
-* Independent random variables
-* Second-moment analysis
-* Random sequences and limits
-* Weak convergence of probability measures
+* Independence
+* Moments
+* Weak convergence
 * Probability metrics
 * Couplings
 * Wasserstein distances
 * Central Limit Theorems
-* The Tanaka Central Limit Theorem
 
-These topics form the theoretical foundation for the arguments developed in the project.
+This theoretical preparation provided the background needed to move from the classical formulation of the Central Limit Theorem toward stronger modes of convergence.
+
+---
 
 ## From Weak Convergence to Wasserstein Convergence
 
-One of the central ideas of the project is the distinction between different notions of convergence of probability distributions.
+A central theme of the project is the distinction between **weak convergence** and **Wasserstein convergence**.
 
-Weak convergence can be characterized through convergence of expectations of bounded continuous functions. However, weak convergence alone does not guarantee convergence of moments.
+For a sequence of probability measures \(\mu_n\), weak convergence describes convergence in distribution. However, weak convergence alone does not generally guarantee convergence of moments.
 
-We therefore studied the **Wasserstein distance**, defined for probability measures with finite \(p\)-th moments by
-
-## Main Mathematical Ingredients
-
-The proof was developed through several intermediate results.
-
-### 1. Couplings and Wasserstein Distance
-
-We introduced couplings of probability distributions and used them to define the Wasserstein metric.
-
-The optimal-transport interpretation provides an intuitive way to understand the distance: probability mass is transported from one distribution to another, with the transportation cost determined by the distance between the corresponding points.
-
-### 2. Weak and Wasserstein Convergence
-
-We examined the relationship between weak convergence and Wasserstein convergence.
-
-In particular, we showed how convergence in Wasserstein distance implies weak convergence and investigated the additional moment condition required to obtain Wasserstein convergence.
-
-### 3. Quantile Representation
-
-For probability distributions on the real line, we studied the representation of Wasserstein distance using quantile functions. This provides a convenient way to construct optimal couplings and calculate Wasserstein distances.
-
-### 4. A Subadditivity Property
-
-An important ingredient in the proof is the inequality for independent random variables
+For probability measures with finite \(p\)-th moments, the \(p\)-Wasserstein distance is defined by
 
 $$
-\mathbb{E}[X+Y]
-\leq
-\mathbb{E}[X]+\mathbb{E}[Y],
+W_p(\mu,\nu)
+=
+\inf_{(X,Y)\in\Gamma(\mu,\nu)}
+\left(\mathbb{E}|X-Y|^p\right)^{1/p},
 $$
 
-with equality characterized by the Gaussian case in the relevant setting.
+where \(\Gamma(\mu,\nu)\) denotes the set of couplings of \(\mu\) and \(\nu\).
 
-This property allows the behavior of normalized sums to be controlled through the corresponding Wasserstein distances.
+For this project, particular attention was given to the case \(p=2\).
+
+The Wasserstein framework therefore provides a way to study convergence that contains information beyond convergence in distribution.
+
+---
+
+## Tanaka Central Limit Theorem
+
+Let \(X_1,X_2,\ldots\) be independent and identically distributed random variables with
+
+$$
+\mathbb{E}[X_1]=0,
+\qquad
+\mathbb{E}[X_1^2]=1.
+$$
+
+Consider the normalized sums
+
+$$
+\zeta_n
+=
+\frac{X_1+\cdots+X_n}{\sqrt{n}}.
+$$
+
+The classical Central Limit Theorem states that
+
+$$
+\zeta_n
+\Rightarrow
+Z,
+$$
+
+where \(Z\) is a standard Gaussian random variable.
+
+The Tanaka formulation studies this convergence in the Wasserstein metric, providing a stronger form of convergence under the appropriate moment assumptions.
+
+---
+
+## Main Proof Strategy
+
+The project follows the proof through several intermediate ideas.
+
+### 1. Dyadic Subsequence
+
+A key step is to first consider the dyadic subsequence
+
+$$
+\eta_k = \zeta_{2^k}.
+$$
+
+This leads to the recursive representation
+
+$$
+\eta_{k+1}
+=
+\frac{\eta_k+\eta_k'}{\sqrt{2}},
+$$
+
+where \(\eta_k'\) is an independent copy of \(\eta_k\).
+
+This recursive structure makes it possible to analyze how the relevant distance to the Gaussian distribution evolves as the number of summed random variables increases.
+
+### 2. Wasserstein-Based Distance
+
+The proof introduces a quantity measuring the distance between the distribution of the normalized sum and the Gaussian distribution.
+
+Using the properties of Wasserstein distance and the behavior of sums of independent random variables, the sequence of these distances can be controlled along the dyadic subsequence.
+
+### 3. Equality and the Gaussian Case
+
+An important ingredient is an inequality for the relevant functional under normalized addition of independent random variables.
+
+The equality case is particularly important: equality occurs in the relevant setting only for Gaussian distributions.
+
+This characterization connects the behavior of the distance functional with the Gaussian distribution appearing in the Central Limit Theorem.
+
+### 4. Moment Bounds
+
+Moment estimates are used to control the sequence and establish the required limiting behavior.
+
+In particular, bounded higher moments provide the necessary control for passing from the dyadic construction to the limiting result.
+
+### 5. From Powers of Two to General \(n\)
+
+After establishing the result for the dyadic subsequence, the argument is extended to arbitrary \(n\).
+
+The binary representation of \(n\) provides a way to decompose a general normalized sum into components associated with powers of two, allowing the dyadic result to be transferred to the full sequence.
+
+---
+
+## An Alternative Perspective
+
+The project also considers another route to the Wasserstein version of the Central Limit Theorem.
+
+The classical CLT already gives
+
+$$
+\zeta_n \Rightarrow Z.
+$$
+
+Under the appropriate convergence of second moments, weak convergence can then be combined with the characterization of Wasserstein convergence to obtain convergence in \(W_2\).
+
+This provides two complementary perspectives:
+
+```text
+                 Classical CLT
+                      │
+                      ▼
+              Weak Convergence
+                      │
+             + Moment Control
+                      │
+                      ▼
+            Wasserstein Convergence
 
 
-## Alternative Proof Perspective
+             Tanaka's Approach
+                      │
+                      ▼
+          Wasserstein-Based Analysis
+                      │
+                      ▼
+           Direct Control of the
+           Distance to the Gaussian
+```
 
-We also considered an alternative route.
+Studying both perspectives helped clarify the relationship between different modes of convergence in probability theory.
 
-Once the classical Central Limit Theorem is established under weak convergence, the result concerning Wasserstein convergence can be obtained by combining weak convergence with the appropriate convergence condition on the second moments.
+---
 
-This provides a useful comparison between:
+## Key Concepts
 
-1. proving the Wasserstein version directly, and
-2. deriving it from the classical weak form of the Central Limit Theorem together with the characterization of Wasserstein convergence.
+The project brings together several concepts from probability theory:
+
+| Concept                 | Role in the Project                                       |
+| ----------------------- | --------------------------------------------------------- |
+| Weak convergence        | Classical mode of convergence in the CLT                  |
+| Wasserstein distance    | Stronger metric for comparing probability distributions   |
+| Couplings               | Mathematical construction underlying Wasserstein distance |
+| Quantile representation | Characterization of Wasserstein distance on the real line |
+| Moments                 | Additional information required for stronger convergence  |
+| Gaussian distribution   | Limiting distribution in the CLT                          |
+| Dyadic subsequences     | Main structure used in the proof                          |
+| Independent sums        | Recursive structure of normalized sums                    |
+
+---
+
+## What I Learned
+
+This project provided a deeper look at probability theory beyond the standard statement of the Central Limit Theorem.
+
+In particular, it helped develop an understanding of:
+
+* how different notions of convergence compare;
+* why convergence in distribution does not by itself control moments;
+* how Wasserstein distance connects probability theory with optimal transport;
+* how couplings can be used to compare probability distributions;
+* how recursive structures can simplify the analysis of normalized sums;
+* how Gaussian distributions arise as a distinguished equality case in the relevant inequalities.
+
+More broadly, the project strengthened my interest in the mathematical structure underlying probabilistic models and statistical learning.
+
+---
 
 ## References
 
 ### Main Text
 
-Lasse Leskelä,
-*Probability Theory: A Fast Course*,
-Aalto University, 2024.
+Lasse Leskelä, *Probability Theory: A Fast Course*, Aalto University, 2024.
 
 ### Original Tanaka Paper
 
 Hiroshi Tanaka,
 “An Inequality for a Functional of Probability Distributions and Its Application to Kac’s One-Dimensional Model of a Maxwellian Gas,”
-*The Annals of Probability*, 6(2), 1978, pp. 283–292.
+*The Annals of Probability*, 6(2), 1978, 283–292.
 
 DOI: `10.1214/aop/1176995535`
 
 ### Additional Reference
 
-Cédric Villani,
-*Optimal Transport: Old and New*,
-Springer, 2009.
+Cédric Villani, *Optimal Transport: Old and New*, Springer, 2009.
 
-## Project Team
+---
 
-* Helia Tajabadi
-https://github.com/HeliaTJB
+## Project Information
 
+**Course:** Probability and Statistics (25732)
+**Department:** Electrical Engineering
+**University:** Sharif University of Technology
+**Semester:** Fall 2025
+
+### Team
+
+* **Helia Tajabadi** https://github.com/HeliaTJB
 
 
 * Behrad Mohammadian
-
-
-* Amirali Jahanbakhsh
-  https://github.com/AmirAli-jb
-
-
-  
+* Amirali Jahanbakhsh https://github.com/AmirAli-jb
 * Hana Akhavan
 
+---
 
+## Repository Contents
 
-**Course:** Probability and Statistics - Dr. Mojahedian (25732)
-
-
-
-**Department:** Electrical Engineering, Sharif University of Technology
-
-
-
-
-**Semester:** Fall 2025
-
-
+```text
+tanaka-central-limit-theorem/
+│
+├── TanakaCLT.pdf
+│   └── Project report
+│
+└── README.md
+    └── Project overview and mathematical summary
+```
