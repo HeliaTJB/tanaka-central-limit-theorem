@@ -261,7 +261,7 @@ Cédric Villani, *Optimal Transport: Old and New*, Springer, 2009.
 
 * **Helia Tajabadi** — [GitHub](https://github.com/HeliaTJB)
 * Behrad Mohammadian
-* **Amirali Jahanbakhsh** — [GitHub](https://github.com/AmirAli-jb)
+* **AmirAli Jahanbakhshi** — [GitHub](https://github.com/AmirAli-jb)
 * Hana Akhavan
 
 ---
